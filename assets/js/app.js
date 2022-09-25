@@ -46,27 +46,17 @@ getNewUserInfo();
 
 document.getElementById("copyUserFullName").addEventListener('click', () => {
     copyUserInfoToClipboard("displayUserFullName");
-    toastTriggered("copyUserFullName");
 });
 
 
 const copyUserInfoToClipboard = id => {
-    var copyText = document.getElementById(id).innerText;
+    const copyText = document.getElementById(id).innerText;
     navigator.clipboard.writeText(copyText).then(() => {
     });
+
+    document.getElementById("copiedToClipboardMessage").innerText = `Copied: "${copyText}"`;
+
+    const copiedToClipboardToastTrigged = document.getElementById('copiedToClipboardToast')
+    const toast = new bootstrap.Toast(copiedToClipboardToastTrigged)
+    toast.show()
 }
-
-const toastTriggered = id => {
-    const toastTrigger = document.getElementById(id)
-    console.log(toastTrigger)
-    const toastLiveExample = document.getElementById('liveToast')
-    if (toastTrigger) {
-        toastTrigger.addEventListener('click', () => {
-            const toast = new bootstrap.Toast(toastLiveExample)
-
-            toast.show()
-        })
-    }
-}
-
-toastTriggered('');
