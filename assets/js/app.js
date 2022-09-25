@@ -48,15 +48,45 @@ document.getElementById("copyUserFullName").addEventListener('click', () => {
     copyUserInfoToClipboard("displayUserFullName");
 });
 
+document.getElementById("copyUserEmail").addEventListener('click', () => {
+    copyUserInfoToClipboard("displayUserEmail");
+});
+
+document.getElementById("copyUserPhoneNumber").addEventListener('click', () => {
+    copyUserInfoToClipboard("displayUserPhoneNumber");
+});
+
+document.getElementById("copyUserGander").addEventListener('click', () => {
+    copyUserInfoToClipboard("displayUserGander");
+});
+
+document.getElementById("copyUserDOB").addEventListener('click', () => {
+    copyUserInfoToClipboard("displayUserDOB");
+});
+
+document.getElementById("copyUserAddress").addEventListener('click', () => {
+    copyUserInfoToClipboard("displayUserAddress");
+});
+
+document.getElementById("copyUserPostcode").addEventListener('click', () => {
+    copyUserInfoToClipboard("displayUserPostcode");
+});
+
+document.getElementById("copyUserSSNNumber").addEventListener('click', () => {
+    copyUserInfoToClipboard("displayUserSSNNumber");
+});
+
 
 const copyUserInfoToClipboard = id => {
     const copyText = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(copyText).then(() => {
-    });
-
-    document.getElementById("copiedToClipboardMessage").innerText = `Copied: "${copyText}"`;
-
-    const copiedToClipboardToastTrigged = document.getElementById('copiedToClipboardToast')
-    const toast = new bootstrap.Toast(copiedToClipboardToastTrigged)
-    toast.show()
+    if(copyText) {
+        navigator.clipboard.writeText(copyText).then(() => {
+        });
+    
+        document.getElementById("copiedToClipboardMessage").innerText = `Copied: "${copyText}"`;
+    
+        const copiedToClipboardToastTrigged = document.getElementById('copiedToClipboardToast')
+        const toast = new bootstrap.Toast(copiedToClipboardToastTrigged)
+        toast.show()
+    }
 }
