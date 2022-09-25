@@ -6,7 +6,7 @@ const getNewUserInfo = () => {
 
 
 const displayUserInfo = (data) => {
-    console.log(data.results[0]);
+    
     const userInfo = data.results[0];
 
     document.getElementById("displayUserPhoto").src = userInfo.picture.large;
